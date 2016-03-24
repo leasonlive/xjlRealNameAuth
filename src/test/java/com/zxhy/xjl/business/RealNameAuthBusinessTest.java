@@ -1,5 +1,6 @@
 package com.zxhy.xjl.business;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,5 +15,11 @@ public class RealNameAuthBusinessTest {
 	@Test
 	public void register(){
 		this.business.register("18900", "123456");
+	}
+	@Test
+	public void getRealNameAuthTask(){
+		RealNameAuthTask task  = this.business.getRealNameAuthTask("18900");
+		Assert.assertNotNull(task);
+		Assert.assertEquals("核名", task.getTaskName());
 	}
 }
